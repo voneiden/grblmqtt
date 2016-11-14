@@ -1,0 +1,13 @@
+{
+  "name": "grblmqtt",
+  "version": "0.0.0",
+  "description": "grblmqtt is a serial-mqtt proxy for grblmgmt",
+  "main": "index.js",
+  "author": "Matti Eiden",
+  "license": "GPLv3",
+  "dependencies": {
+    "serialport": "4.0.5",
+    "mqtt": "2.0.1",
+    "mosca": "2.2.0"
+  }
+}
