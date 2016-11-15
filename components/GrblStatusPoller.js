@@ -17,7 +17,8 @@
 */
 
 class GrblStatusPoller {
-    constructor(interval=200, timeout=10000) {
+    constructor(main, interval=200, timeout=10000) {
+        this.main = main;
         this.running = false;
         this.receivedUpdate = null;
         this.missingOkCount = 0;
@@ -71,7 +72,7 @@ class GrblStatusPoller {
         global.clearTimeout(this.timeoutTimer);
 
         if (this.running) {
-            port.write("?\n");
+            this.main.serialClient.write("?", true, false);
             this.receivedUpdate = false;
             this.receivedOk = false;
             this.timeoutTimer = global.setTimeout(this.poll2, this.timeoutTime);
