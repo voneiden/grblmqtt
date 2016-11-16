@@ -61,12 +61,8 @@ class MqttClient {
         //message = message.replace("\r", "");
         if (message.length) {
             if (message[0] == "<" && !this.main.grblStatusPoller.receivedUpdate) {
-                this.main.grblStatusPoller.statusReceived();
-                console.log(">> STATUS");
+                this.main.grblStatusPoller.receivedUpdate = true;
                 this.mqttClient.publish("grbl/status", message);
-            }
-            else if (this.main.grblStatusPoller.missingOkCount > 0 && message == "ok") {
-                this.main.grblStatusPoller.okReceived();
             }
             else {
                 //console.log("PUBLISH MESSAGE:" + message, message.length);

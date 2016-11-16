@@ -52,7 +52,7 @@ class SerialClient {
 
         }
         else {
-            publishSerialStatus();
+            this.main.mqttClient.publishSerialStatus();
         }
     }
 
